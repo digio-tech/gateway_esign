@@ -78,17 +78,62 @@ dependencies {
 
 
 ### **Steps to Invoke signing**
-1. #### Configure Digio instances : should be called on activity/fragment onCreate
+1. Configure Digio instances : should be called on activity/fragment onCreate
+```
+Digio digio = new Digio();
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    DigioConfig digioConfig = new DigioConfig();
+    DigioTheme theme = new DigioTheme();
+    theme.setPrimaryColor(android.R.color.holo_red_dark);
+    theme.setFontFamily("Unbounded");
+    theme.setSecondaryColorHex("#141414");
+    theme.setFontUrl("https://fonts.googleapis.com/css2?family=Unbounded:wght@200&display=swap");
+    digioConfig.setTheme(theme);
+    digioConfig.setLogo("https://www.digio.in/images/digio_blue.png"); // Your company logo url
+    digioConfig.setEnvironment(DigioEnvironment.SANDBOX); // SANDBOX or PRODUCTION
+    digioConfig.setServiceMode(DigioServiceMode.OTP);  // FP/OTP/IRIS
+    try {
+        digio.init(this, digioConfig);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+```
 
 
+2. DigioResponseListener and import onDigioSuccess, onDigioFailure override function in your activity/fragment. Below are function signatures
 
-2. #### DigioResponseListener and import onDigioSuccess, onDigioFailure override function in your activity / fragment. Below are function signatures
+```
+@Override
+public void onDigioSuccess(@NonNull DigioResponse digioResponse) {
+    System.out.println("digioResponse = " + digioResponse);
+}
+
+@Override
+public void onDigioFailure(@NonNull DigioResponse digioResponse) {
+    System.out.println("digioResponse = " + digioResponse);
+}
+
+@Override
+public void onGatewayEvent(@NonNull GatewayEvent gatewayEvent) {
+    System.out.println("gatewayEvent = " + gatewayEvent);
+}
+```
+
+3. Starting the sign flow
+```
+try {
+    digio.start(signForm.getDocumentId(), signForm.getEmail()); //this refers DigioResponseListener
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
 
 
-3. ##### Starting the sign flow
-
-
-4. #### **Proguard :** No action is required for latest stable android studio, proguard-rules are already added to the sdk.
+4. **Proguard :** No action is required for latest stable android studio, proguard-rules are already added to the sdk.
 #### It is required to test the release build for possible proguard exceptions before prod releases.
 
 
