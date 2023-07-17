@@ -114,7 +114,7 @@ Demo App Apks : [PRODUCTION](https://drive.google.com/file/d/1Gr5toJENTFUGkCQHMx
 |<p></p><p>documentId</p><p></p>|<p></p><p>DID22040413040490937VNTC6LAP8KWD</p>|String format (Request ID Passed by parent app)|
 | :- | :- | :- |
 |<p></p><p>message</p>|<p>Signing Success</p><p></p>|<p>**Failur** = Digio sdk crash</p><p></p><p>**Webpage could not be loaded** = web page not loaded due to internet connection issue even after 3 retries.</p><p></p>|
-|code|1001|<p>DigioConstants.</p><p>RESPONSE\_CODE\_SUCCESS = 1001</p><p>RESPONSE\_CODE\_CANCEL = -1000</p><p>RESPONSE\_CODE\_FAIL = 1002</p><p>RESPONSE\_CODE\_WEB\_VIEW\_CRASH = 1003</p><p>RESPONSE\_CODE\_SDK\_CRASH</p><p>` `= 1004</p>|
+|code|1001|<p>DigioConstants.</p><p>RESPONSE\_CODE\_SUCCESS = 1001</p><p>RESPONSE\_CODE\_CANCEL = -1000</p><p>RESPONSE\_CODE\_FAIL = 1002</p><p>RESPONSE\_CODE\_WEB\_VIEW\_CRASH = 1003</p><p>RESPONSE\_CODE\_SDK\_CRASH</p><p>= 1004</p>|
 |screen|document\_preview||
 |npciTxnId||String|
 |esignState|<p>{</p><p>`  `"txn\_id": "0.8113660041195622-state",</p><p>`  `"doc\_id": "DID22040413040490937VNTC6LAP8KWD",</p><p>`  `"last\_state": {</p><p>`    `"screen": "user\_auth\_screen",</p><p>`    `"state\_code": "initiated"</p><p>`  `}</p><p>}</p><p></p>|Object|
@@ -137,8 +137,7 @@ Refer Gateway document for all posible events and error data : [Gateway Event Do
 
 
 
- DigioEvent<br>`    `documentId: string;<br>`    `txnId: string;<br>`    `entity: string;<br>`    `identifier: string;<br>`    `event: string;<br>`    `payload: <br>`        `type: 'error' | 'info';<br>`        `data?: HashMap<String,Any>;<br>`        `error?: <br>`            `code: string;<br>`            `message: string;|
-| :- |
+ DigioEvent<br>`    `documentId: string;<br>`    `txnId: string;<br>`    `entity: string;<br>`    `identifier: string;<br>`    `event: string;<br>`    `payload: <br>`        `type: 'error' | 'info';<br>`        `data?: HashMap<String,Any>;<br>`        `error?: <br>`            `code: string;<br>`            `message: string;
 
 
 
@@ -169,28 +168,23 @@ Refer Gateway document for all posible events and error data : [Gateway Event Do
 
 
 
-Change Logs
+### Change Logs
 
 
-
-` `**Version 4.0.6 :**
-
-- Introduced webview connection error handling with in digio sdk.
-- Added internet connection observability, if internet connection get disconnected message will be displayed with in digio sdk.
-- Digio activity will run in portrait mode only and will not re-create on any system configuration changes
-- Digio Activity will not run in separate process, there is no requirement of any handling in Application class.
-- Introduced Gateway events
+- **Version 4.0.6 :**
+  - Introduced webview connection error handling with in digio sdk.
+  - Added internet connection observability, if internet connection get disconnected message will be displayed with in digio sdk.
+  - Digio activity will run in portrait mode only and will not re-create on any system configuration changes
+  - Digio Activity will not run in separate process, there is no requirement of any handling in Application class.
+  - Introduced Gateway events
 
 
-Migration Guide
+### Migration Guide
 
 - **4.0.3 => 4.0.6**
-  **
-  `   `: implement onGatewayEvent on DigioResponseListener
-
-`   `: add following dependencies
-
-implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+  - implemented onGatewayEvent on DigioResponseListener
+  - add following dependencies
+  - add  ```implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'``` to build.gradle
 
 
 
