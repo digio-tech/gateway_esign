@@ -1,3 +1,9 @@
-install:
-  - FILE="-Dfile=digio_esign-4.0.6.aar"
-  - mvn install:install-file $FILE -DgroupId=in.digio.sdk -DartifactId=esign -Dversion=4.0.6 -Dpackaging=aar -DgeneratePom=true
+format: aar
+groupId: in.digio.sdk
+artifactId: esign
+version: 4.0.8
+
+dependencies:
+  - digio_esign-4.0.8.aar
+  - digio_gateway-4.0.8.aar
+  - protean-esign-v-3.2.aar
