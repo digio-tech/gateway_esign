@@ -36,7 +36,9 @@ android {
 
 dependencies {
     implementation 'com.github.digio-tech:gateway:v4.0.8'
-    implementation 'com.github.digio-tech:gateway_esign:v4.0.8'
+    implementation 'com.github.digio-tech:gateway_esign:4.0.8'
+    implementation 'com.github.digio-tech:protean-esign:v3.2'
+
     
     // Other dependencies
     implementation 'androidx.appcompat:appcompat:1.6.1'
