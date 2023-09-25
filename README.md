@@ -130,8 +130,10 @@ try {
 
 4. **Proguard :** 
 #### It is required to test the release build for possible proguard exceptions before prod releases.
+```
 -dontwarn org.json.**
 -keep class org.json** { *; }
+```
 
 #### **App crash after starting digio flow :**
 - Make sure init is called before start and all the parameter values are proper as the documentation.
@@ -144,9 +146,9 @@ Demo App Apks : [PRODUCTION](https://drive.google.com/file/d/1Gr5toJENTFUGkCQHMx
 
 
 
-|<a name="_g2lkuhshpqkl"></a>**DigioEnvironment**  | <p>SANDBOX</p><p>PRODUCTION</p>  |Mandatory|
-| :- |:---------------------------------| :- |
-|<a name="_dj5ef5818xf7"></a>**DigioServiceMode**| <p>OTP</p><p>FP</p><p>IRIS</p>|<p>Note:</p><p>**OTP** (default): Aadhaar OTP authentication based eSign</p><p></p><p>**FP**: Fingerprint authentication based Aadhaar eSign (Biometric)</p><p></p><p>**IRIS**: Iris authentication based Aadhaar eSign</p>|
+|<a name="_g2lkuhshpqkl"></a>**DigioEnvironment**  | <p>SANDBOX</p><p>PRODUCTION</p>           | Mandatory                                                                                                                                                                                                                                                                           |
+| :- |:------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|<a name="_dj5ef5818xf7"></a>**DigioServiceMode**| <p>OTP</p><p>FP</p><p>IRIS</p><p>FACE</p> | <p>Note:</p><p>**OTP** (default): Aadhaar OTP authentication based eSign</p><p></p><p>**FP**: Fingerprint authentication based Aadhaar eSign (Biometric)</p><p></p><p>**IRIS**: Iris authentication based Aadhaar eSign</p><p>**FACE**: Face authentication based Aadhaar eSign</p> |
 ###
 
 ### <a name="_w7hact52sg6g"></a><a name="_702inqpogtkm"></a>**Sample Success Response**
@@ -210,7 +212,10 @@ Refer Gateway document for all posible events and error data : [Gateway Event Do
 
 
 ### Change Logs
-
+- **Version 4.0.8 :**
+  - Added FACE authentication to eSign
+  - Using protean eSign SDK for biometric and face based authentication
+  - Removed firebase crashlytics 
 
 - **Version 4.0.6 :**
   - Introduced webview connection error handling with in digio sdk.
