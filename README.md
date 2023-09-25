@@ -15,10 +15,6 @@ plugins {
    id 'com.android.library' version '7.4.2' apply false
    id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
    id 'androidx.navigation.safeargs' version '2.4.2' apply false
-   
-// optional crashlytics plugin if you want to report crashes of digio sdk, this will not conflict with app crashlytics'
-   id 'com.google.gms.google-services' version '4.3.10' apply false
-   id 'com.google.firebase.crashlytics' version '2.8.1' apply false
 }
 
 ```
@@ -28,8 +24,6 @@ plugins {
 ```
 plugins {
    id 'com.android.application'
-   // optional plugin for digio crashlytics
-   id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -41,8 +35,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.digio-tech:gateway:v4.0.6'
-    implementation 'com.github.digio-tech:gateway_esign:v4.0.6'
+    implementation 'com.github.digio-tech:gateway:v4.0.8'
+    implementation 'com.github.digio-tech:gateway_esign:v4.0.8'
     
     // Other dependencies
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -51,12 +45,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
     // Added in version 4.0.6
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    // mandatory : crash handing by digio sdk. Does not conflict with app crash analytics.
-    implementation 'com.google.firebase:firebase-common-ktx:20.2.0'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.3.2'
     Following dependency is also not required if org.jetbrains.kotlin.android plugin version is 1.8.*
     implementation 'androidx.core:core-ktx:1.10.0'
-
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.scottyab:rootbeer-lib:0.1.0'
 }
 ```
 
@@ -66,9 +58,10 @@ dependencies {
 **Digio SDK supports android version 5.0 and above (SDK level 21 above)**
 
 ### **Biometric Configuration**
-1. Finger print/ IRIS authentication required following software
-    1. CA-ESP (NSDL) apk must be installed in device [link here](https://drive.google.com/file/d/1foSprXE6fjA3MCjBha5RC3aHx0bzShHt/view?usp=sharing)
-    2. RD services software must be installed in device (Provided by vendor)
+1. Finger print/ IRIS / FACE authentication required following software
+   1. RD services software must be installed in device (Provided by vendor)
+   2. For face based authentication on SANDBOX environment use the following apk from the given link. https://digio-public-docs.s3.ap-south-1.amazonaws.com/esign/rd_service/facerd_v0.7.43_pre_prod.apk
+      On PRODUCTION - app will be redirected to play store to install necessary RD Service. 
 
     
 
@@ -94,7 +87,7 @@ protected void onCreate(Bundle savedInstanceState) {
     digioConfig.setTheme(theme);
     digioConfig.setLogo("https://www.digio.in/images/digio_blue.png"); // Your company logo url
     digioConfig.setEnvironment(DigioEnvironment.SANDBOX); // SANDBOX or PRODUCTION
-    digioConfig.setServiceMode(DigioServiceMode.OTP);  // FP/OTP/IRIS
+    digioConfig.setServiceMode(DigioServiceMode.OTP);  // FP/OTP/IRIS/FACE
     try {
         digio.init(this, digioConfig);
     } catch (Exception e) {
@@ -133,9 +126,10 @@ try {
 ```
 
 
-4. **Proguard :** No action is required for latest stable android studio, proguard-rules are already added to the sdk.
+4. **Proguard :** 
 #### It is required to test the release build for possible proguard exceptions before prod releases.
-
+-dontwarn org.json.**
+-keep class org.json** { *; }
 
 #### **App crash after starting digio flow :**
 - Make sure init is called before start and all the parameter values are proper as the documentation.
