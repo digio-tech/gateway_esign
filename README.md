@@ -226,7 +226,10 @@ Refer Gateway document for all posible events and error data : [Gateway Event Do
 
 
 ### Migration Guide
-
+- **4.0.6 => 4.0.8**
+  - Remove firebase crashlytics dependencies and gradle plugin if not required by app.
+  - Add following dependencies ```implementation 'com.github.digio-tech:protean-esign:v3.2'```
+  
 - **4.0.3 => 4.0.6**
   - implemented onGatewayEvent on DigioResponseListener
   - add following dependencies
