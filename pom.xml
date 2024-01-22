@@ -6,5 +6,5 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>in.digio.sdk</groupId>
     <artifactId>esign</artifactId>
-    <version>4.0.8.beta1</version>
+    <version>4.0.9</version>
 </project>
