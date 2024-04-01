@@ -13,7 +13,7 @@ allprojects {
 plugins {
    id 'com.android.application' version '7.4.2' apply false
    id 'com.android.library' version '7.4.2' apply false
-   id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
+   id 'org.jetbrains.kotlin.android' version '1.8.22' apply false
    id 'androidx.navigation.safeargs' version '2.4.2' apply false
 }
 
@@ -35,8 +35,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.digio-tech:gateway:v4.0.8'
-    implementation 'com.github.digio-tech:gateway_esign:v4.0.9'
+    implementation 'com.github.digio-tech:gateway:v4.0.10'
+    implementation 'com.github.digio-tech:gateway_esign:v5.0.1'
     implementation 'com.github.digio-tech:protean-esign:v3.2'
     implementation 'com.github.digio-tech:cvl_esign:v1.0.0'
     implementation 'com.github.digio-tech:cvl_rdservice:v1.0.0'
@@ -264,6 +264,9 @@ Refer Gateway document for all posible events and error data : [Gateway Event Do
 
 
 ### Change Logs
+- **Version 5.0.1 :**
+  - Upgraded sdk to be included on usecase basis in main sdk
+  
 - **Version 4.0.10 :**
   - Using CVL eSign SDK for biometric and face based authentication
 
