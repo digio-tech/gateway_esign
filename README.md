@@ -36,7 +36,7 @@ android {
 
 dependencies {
     implementation 'com.github.digio-tech:gateway:v4.0.10'
-    implementation 'com.github.digio-tech:gateway_esign:v4.0.10'
+    implementation 'com.github.digio-tech:gateway_esign:v4.0.11'
     implementation 'com.github.digio-tech:protean-esign:v3.2'
     implementation 'com.github.digio-tech:cvl_esign:v1.0.1'
     implementation 'com.github.digio-tech:cvl_rdservice:v1.0.0'
@@ -54,6 +54,10 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.10.0'
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'com.scottyab:rootbeer-lib:0.1.0'
+    implementation 'com.google.code.gson:gson:2.9.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
+
 }
 ```
 
