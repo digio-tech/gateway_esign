@@ -36,7 +36,7 @@ android {
 
 dependencies {
     implementation 'com.github.digio-tech:gateway:v4.0.10'
-    implementation 'com.github.digio-tech:gateway_esign:v4.0.11'
+    implementation 'com.github.digio-tech:gateway_esign:v4.0.12'
     implementation 'com.github.digio-tech:protean-esign:v3.2'
     implementation 'com.github.digio-tech:cvl_esign:v1.0.1'
     implementation 'com.github.digio-tech:cvl_rdservice:v1.0.0'
