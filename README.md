@@ -170,7 +170,7 @@ Demo App Apks : [PRODUCTION](https://drive.google.com/file/d/1Gr5toJENTFUGkCQHMx
 |esignState|<p>{</p><p>`  `"txn\_id": "0.8113660041195622-state",</p><p>`  `"doc\_id": "DID22040413040490937VNTC6LAP8KWD",</p><p>`  `"last\_state": {</p><p>`    `"screen": "user\_auth\_screen",</p><p>`    `"state\_code": "initiated"</p><p>`  `}</p><p>}</p><p></p>|Object|
 
 
-### <a name="_wjtrktrxj8c5"></a>**Sample Failure/Cnacel Response**
+### <a name="_wjtrktrxj8c5"></a>**Sample Failure/Cancel Response**
 
 
 |<p></p><p>documentId</p><p></p>|<p></p><p>DID22040413040490937VNTC6LAP8KWD</p>|String format (Request ID Passed by parent app)|
