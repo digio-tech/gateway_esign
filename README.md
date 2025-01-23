@@ -11,10 +11,11 @@ allprojects {
 }
 
 plugins {
-   id 'com.android.application' version '7.4.2' apply false
-   id 'com.android.library' version '7.4.2' apply false
-   id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
-   id 'androidx.navigation.safeargs' version '2.4.2' apply false
+   id 'com.android.application' version '8.7.1' apply false
+   id 'com.android.library' version '8.7.1' apply false
+   id 'org.jetbrains.kotlin.android' version '1.9.20' apply false
+   id 'androidx.navigation.safeargs' version '2.8.3' apply false
+   id 'com.google.gms.google-services' version '4.3.10' apply false
 }
 
 ```
@@ -24,6 +25,9 @@ plugins {
 ```
 plugins {
    id 'com.android.application'
+   id 'com.google.gms.google-services'
+   id 'org.jetbrains.kotlin.android'
+   id 'kotlin-kapt'
 }
 
 android {
@@ -35,8 +39,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.digio-tech:gateway:v4.0.10'
-    implementation 'com.github.digio-tech:gateway_esign:v4.0.12'
+    implementation 'com.github.digio-tech:gateway:v4.0.15'
+    implementation 'com.github.digio-tech:gateway_esign:v4.0.14'
     implementation 'com.github.digio-tech:protean-esign:v3.2'
     implementation 'com.github.digio-tech:cvl_esign:v1.0.1'
     implementation 'com.github.digio-tech:cvl_rdservice:v1.0.0'
@@ -219,6 +223,10 @@ Refer Gateway document for all posible events and error data : [Gateway Event Do
 
 
 ### Change Logs
+- **Version 4.0.14 :**
+  - AGP Update and support for higher version 
+  - Enabled More support for face authentication
+  
 - **Version 4.0.8 :**
   - Added FACE authentication to eSign
   - Using protean eSign SDK for biometric and face based authentication
